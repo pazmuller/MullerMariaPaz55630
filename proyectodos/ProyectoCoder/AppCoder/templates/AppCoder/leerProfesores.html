@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Profesores</title>
+</head>
+<body>
+    <h1>Lista de Profesores</h1>
+    <div>
+        {% for profesor in profesores %}
+            <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
+                <strong>Nombre:</strong> {{ profesor.nombre }}<br>
+                <strong>Apellido:</strong> {{ profesor.apellido }}<br>
+                <strong>Email:</strong> {{ profesor.email }}<br>
+                <strong>Profesión:</strong> {{ profesor.profesion }}
+            </div>
+            <button>
+                <a href="{% url 'EliminarProfesor' profesor.nombre %}">Eliminar</a>
+                <a href="{% url 'EditarProfesor' profesor.nombre %}">Editar</a>
+            </button>
+        {% endfor %}
+    </div>
+
+    <a href="{% url 'ProfesorFormulario' %}">Agregar otro profesor</a>
+</body>
+</html>
+

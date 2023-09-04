@@ -1,0 +1,23 @@
+{% extends "AppCoder/padre.html" %}
+
+{% block titulo %}Formulario - Resultados de Búsqueda{% endblock %}
+
+{% block contenidoQueCambia %}
+    <h1>Resultados de Búsqueda</h1>
+    <p>Estamos buscando el: {{ camada }}</p>
+
+    <!-- Resto del contenido específico de esta vista -->
+
+    {% if cursos %}
+        <ul>
+        {% for curso in cursos %}
+            <li>{{ curso.nombre }}</li>
+            <li>{{ curso.camada }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    
+    <form>
+        <!-- Agrega aquí cualquier formulario adicional si es necesario -->
+    </form>
+{% endblock %}

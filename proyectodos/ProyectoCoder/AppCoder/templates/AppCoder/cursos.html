@@ -1,0 +1,40 @@
+{% extends "AppCoder/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+
+    <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+    {% if cursos %}
+    <p>Estamos buscando el: {{camada}}</p>
+
+    <ul>
+    {% for curso in cursos %}
+        <li> {{curso.nombre}} </li>
+        <li> {{curso.camada}} </li>
+    {% endfor %}
+    </ul>
+
+    {% else %}
+    <p>No hay datos con esa descricpión.</p>
+
+    {% endif %}
+
+    <p style="color: red;"> {{respuesta}}</p>
+    {% if miFormulario.errors %}
+
+    <p style="color: red;"> Están mal los datos, revisar</p>
+
+    {% endif %}
+    <form action="" method="POST"> {% csrf_token %} 
+
+        <table> 
+            {{ miFormulario.as_table }}
+        </table>
+
+        <input type="submite", value="Enviar">
+
+    </form>
+
+{% endblock %}
